@@ -26,6 +26,8 @@ func main() {
 	router.GET("/album/:id", getAlbumByID)
 	router.POST("/albums", postAlbums)
 	router.DELETE("album/:id", deleteAlbumByID)
+	router.StaticFS("/static", http.Dir("./static"))
+	router.StaticFile("/new_example.html", "./resources/new_example.html")
 
 	router.Run("localhost:8080")
 }
